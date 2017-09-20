@@ -1,0 +1,30 @@
+<table>
+  <thead>
+    <tr>
+      <th>Player Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let player of players">
+      <td>{{ player.name }}</td>
+      <td>
+        <span *ngIf="gameNum == 1">
+          <button (click)="playing(player._id, gameNum)" [ngClass]="{green: player.game1===true}">Playing</button>
+          <button (click)="notplaying(player._id, gameNum)" [ngClass]="{red: player.game1===false}">Not Playing</button>
+          <button (click)="undecided(player._id, gameNum)" [ngClass]="{yellow: player.game1===null}">Undecided</button>
+        </span>
+        <span *ngIf="gameNum == 2">
+          <button (click)="playing(player._id, gameNum)" [ngClass]="{green: player.game2===true}">Playing</button>
+          <button (click)="notplaying(player._id, gameNum)" [ngClass]="{red: player.game2===false}">Not Playing</button>
+          <button (click)="undecided(player._id, gameNum)" [ngClass]="{yellow: player.game2===null}">Undecided</button>
+        </span>
+        <span *ngIf="gameNum == 3">
+          <button (click)="playing(player._id, gameNum)" [ngClass]="{green: player.game3===true}">Playing</button>
+          <button (click)="notplaying(player._id, gameNum)" [ngClass]="{red: player.game3===false}">Not Playing</button>
+          <button (click)="undecided(player._id, gameNum)" [ngClass]="{yellow: player.game3===null}">Undecided</button>
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
